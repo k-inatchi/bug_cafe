@@ -19,8 +19,16 @@ def take_order(menus)
   menus.each.with_index(1) do |menu, i|
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
-  print '>'
-  order_number = gets.to_i - 1
+  order_number = nil
+  loop do
+    print '>'
+    order_number = gets.to_i - 1
+    if order_number >= 0 && order_number < menus.size
+      break
+    else
+      puts 'メニュー内の番号を入力してください'
+    end
+  end
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   menus[order_number]
 end
