@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'debug'
 
 DRINKS = [
@@ -23,11 +24,9 @@ def take_order(menus)
   loop do
     print '>'
     order_number = gets.to_i - 1
-    if order_number >= 0 && order_number < menus.size
-      break
-    else
-      puts 'メニュー内の番号を入力してください'
-    end
+    break if order_number >= 0 && order_number < menus.size
+
+    puts 'メニュー内の番号を入力してください'
   end
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   menus[order_number]
