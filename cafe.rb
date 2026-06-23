@@ -22,12 +22,12 @@ def take_order(menus)
   print '>'
   order_number = gets.to_i - 1
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
-  order_number
+  menus[order_number]
 end
 
 puts 'bugカフェへようこそ！ご注文は？ 番号でどうぞ'
 order1 = take_order(DRINKS)
 puts 'フードメニューはいかがですか?'
 order2 = take_order(FOODS)
-total = DRINKS[order1][:price] + FOODS[order2][:price]
+total = order1[:price] + order2[:price]
 puts "お会計は#{total}円になります。ありがとうございました！"
